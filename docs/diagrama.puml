@@ -1,0 +1,136 @@
+@startuml Pacman
+Pacman "1" *-- "3" Vida
+Pacman o--Fruta
+Pacman o--Escenario
+Pacman o--Pildora
+Pacman o-- Animacion
+Jugador o--Pacman
+Jugador "1" *-- "1" Puntaje
+Jugador "1" *-- "*" Creditos
+Puntaje o--Punto
+Puntaje o--Tiempo
+Puntaje o--Fruta
+Escenario "1" *-- "*" Pared
+Escenario "1" *-- "2"Teletransporte
+Fantasma --|> NPC
+Fantasma o--CamaraDeRegeneracion
+Fantasma *--Sprite
+Fantasma o--IA
+Fantasma o-- Animacion
+HighestScore o--Puntaje
+Nivel "1" *-- "1" Escenario
+Nivel o--Tiempo
+Nivel o--Texto
+Nivel o--HighestScore
+Texto o--Vida
+Texto o--Puntaje
+Texto o--Nivel
+Creditos o--Vida
+Texto "1" *-- "1" Color
+Texto "1" *-- "*" Numero
+Animacion "1" *-- "*" Sprite
+Sprite "1" *-- "1" Dibujo
+class Color{
++AgregarColor()
+}
+class Pacman{
++Comer()
++Mover()
+-Vida : vidas[3]
+-Sprite : sprites[*]
+}
+class Fantasma{
+}
+class Vida{
++Perder()
++Ganar()
+}
+class Fruta{
++Sumar()
++Consumir()
+}
+class Escenario{
++CargarTexturas()
++GenerarTerreno()
+-Pared : paredHorizontal
+-Pared : paredVertical
+-Pared : pared90Grados
+}
+class Jugador{
+-Creditos:creditos[*]
+-Puntaje:puntaje
+}
+class Puntaje{
++CalcuarPuntaje()
+}
+Class Punto{
++Consumir()
+}
+class Tiempo{
++ContarTiempo()
++CalcularTiempoRestante
+}
+class Teletransporte{
++Teletransportar()
+}
+class Pared{
++Colisionar()
+}
+class NPC{
+}
+class CamaraDeRegeneracion{
++Regenerar()
+}
+class Nivel{
+-Numero : numeroDeNivel
+-Escenario : escenario
++CargarNivel()
+}
+class Pildora{
++Consumir()
+}
+class Sprite{
++Animacion()
+-Dibujo : frame
+}
+class Texto{
++MostrarPuntaje()
++MostrarVidas()
++Mostrar#DeNivel()
+-Color : rojo
+-Color : azul
+-Color: marillo
+-Numero : numeros[*]
+}
+class IA{
++Inky()
++Pinky()
++Blinky()
++Clyde()
+}
+class Creditos{
++GameOver()
++AgregarVidas()
+}
+class HighestScore{
++CompararPuntaje()
++RegistrarNewHighestScore()
+-Puntaje : highestScore
+}
+
+Class Numero
+{
+}
+
+Class Dibujo{
++MostrarDibujo()
+}
+
+Class Animacion{
+    -Sprite :  sprites[*]
+    + IniciarAnimacion()
+    + PausarAnimacion()
+    + ReiniciarAnimacion()
+}
+
+@enduml
