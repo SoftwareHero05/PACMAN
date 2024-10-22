@@ -10,5 +10,7 @@ public:
     void Flotar() {
             this->flotando = true;
     }
-    
+    bool IsFloating(){
+        return this->flotando;
+    }
 };
