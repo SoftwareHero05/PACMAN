@@ -13,4 +13,7 @@ public:
     bool IsFloating(){
         return this->flotando;
     }
+    void Inicializar() {
+        this->flotando = false;
+    }
 };

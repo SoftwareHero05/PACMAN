@@ -7,5 +7,7 @@ int main(){
 
     std::cout<<"El coqueto esta flotando?"<<std::endl<<
     coqueto.IsFloating()<<std::endl;
+
+    
 }
 
